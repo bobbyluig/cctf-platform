@@ -23,27 +23,26 @@ All challenge files should contain three functions: ```def grade(flag)```, ```de
 
 Example: Challenge 1
 
-	python
-
-     def grade(flag):
-    	if flag == '{this_is_a_flag}':
-    		return (True, 'Success!')
-    	else:
-    		return (False, 'You are a failure.')
+```python
+def grade(flag):
+  if flag == '{this_is_a_flag}':
+    	return (True, 'Success!')
+    else:
+    	return (False, 'You are a failure.')
     
-    def description():
-    	data = "<p>Are you ready for challenge 1?</p>"
-    	return data
-    	
-    def add():
-    	data = {
-    		'title': 'Web 1',
-    		'category': 2,
-    		'value': 15,
-    		'type': 0, # Optional. If 1, tells browser not to cache challenge.
-    	}
-    	
+def description():
+    data = "<p>Are you ready for challenge 1?</p>"
     return data
+    	
+def add():
+    data = {
+    	'title': 'Web 1',
+    	'category': 2,
+    	'value': 15,
+    	'type': 0, # Optional. If 1, tells browser not to cache challenge.
+    	}
+    return data
+```
 
 
 The file in this case should be named ```challenge_1.py```.
