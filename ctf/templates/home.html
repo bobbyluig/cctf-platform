@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Home - CCTF{% endblock %}
+
+{% block main %}
+		<main>
+			<div class="container">
+				<h2 class="center green-text">Welcome to CCTF!</h2>	
+
+				<div class="row">
+					<div class="col s12">
+						<div class="icon-block">
+							<h2 class="center indigo-text text-accent-2"><i class="mdi-hardware-memory"></i></h2>
+							<h5 class="center">System Messages</h5>
+							<div id="system">
+							{% for data in system %}
+								<p class="light center" style="display:none">{{ data|safe }}</p>
+							{% endfor %}
+							</div>
+							<div class="center">
+								<a class="tooltipped" href="#" data-position="bottom" data-delay="50" data-tooltip="Back in time.">
+									<i class="small mdi-hardware-keyboard-arrow-left" id="back"></i>
+								</a>
+								<a class="tooltipped" href="#" data-position="bottom" data-delay="50" data-tooltip="Forward in time.">
+									<i class="small mdi-hardware-keyboard-arrow-right" id="forward"></i>
+								</a>
+							</div>
+						</div>
+						
+					</div>
+
+					<div class="col s12 l6">
+						<div class="icon-block">
+							<h2 class="center indigo-text text-accent-2"><i class="mdi-action-done"></i></h2>
+							<h5 class="center">Latest Submissions</h5>
+							{% for data in submit %}
+								<p class="light center">{{ data|safe }}</p>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div class="col s12 l6">
+						<div class="icon-block">
+							<h2 class="center indigo-text text-accent-2"><i class="mdi-action-swap-horiz"></i></h2>
+							<h5 class="center">Latest Interacts</h5>
+							{% for data in interact %}
+								<p class="light center">{{ data|safe }}</p>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+
+				<br><br>
+				
+				<div class="row">
+					<div class="col s12">
+						<div class="z-depth-1">
+							<div id="graph" style="height: 500px;">
+								<div class="valign-wrapper">
+									<div class="progress">
+										<div class="indeterminate"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</main>
+		
+		<div id="helpmodal" class="modal">
+			<div class="modal-content">
+				<h4>Home Help</h4>
+				<p>Welcome to the CCTF competition! You can open a help modal like this one at any time by clicking on the <i class="mdi-action-info-outline modal-trigger"></i> in the menu. Find out more information by perusing the <a href="/readme">read me</a> page!</p>
+				<p>This page display system messages, recent activities, and a graph of the combined data of all teams. Individual sets of data can be toggled by clicking on the legend. The graph is updated once per minute.</p>
+			</div>
+			<div class="modal-footer">
+				<button class="waves-effect waves-light btn modal-action modal-close">Got it</button>
+			</div>
+		</div>		
+{% endblock %}
+
+{% block scripts %}
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/4.1.4/highcharts.js"></script>
+		<script type="text/javascript" src="{{STATIC_URL}}js/home.js"></script>
+{% endblock %}

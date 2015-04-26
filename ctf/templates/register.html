@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Register - CCTF{% endblock %}	
+
+{% block main %}		
+		<main>
+			<div class="container">
+				<div class="row">
+					<div class="col s12">
+						<div id="basic">
+							<h2 class="center green-text">Register</h2>
+							<form class="col s12" action="/api/register/">
+								<div class="row">
+									<div class="input-field col s12 m6 l6">
+										<i class="mdi-social-person prefix"></i>
+										<input id="namem1" name="name" type="text" class="validate">
+										<label for="namem1" class="">Team Name (login)</label>
+									</div>
+									<div class="input-field col s12 m6 l6">
+										<i class="mdi-social-person prefix"></i>
+										<input id="namem1" name="school" type="text" class="validate">
+										<label for="namem1" class="">School</label>
+									</div>
+									<div class="input-field col s12 m6 l6">
+										<i class="mdi-social-person prefix"></i>
+										<input id="namem1" name="m1" type="text" class="validate">
+										<label for="namem1" class="">Name for Member 1</label>
+									</div>
+									<div class="input-field col s12 m6 l6">
+										<i class="mdi-social-person prefix"></i>
+										<input id="namem2" name="m2" type="text" class="validate">
+										<label for="namem2" class="">Name for Member 2</label>
+									</div>
+									<div class="input-field col s12 m6 l6">
+										<i class="mdi-social-person prefix"></i>
+										<input id="namem3" name="m3" type="text" class="validate">
+										<label for="namem3">Name for Member 3</label>
+									</div>
+									<div class="input-field col s12 m6 l6">
+										<i class="mdi-social-person prefix"></i>
+										<input id="namem4" name="m4" type="text" class="validate">
+										<label for="namem4">Name for Member 4</label>
+									</div>
+									<div class="input-field col s12">
+										<i class="mdi-communication-email prefix"></i>
+										<input id="email" name="email" type="email" class="validate">
+										<label for="email">Email</label>
+									</div>
+									<div class="input-field col s12 m6 l6">
+										<i class="mdi-hardware-security prefix"></i>
+										<input id="password" name="password" type="password" class="validate">
+										<label for="password">Password</label>
+									</div>
+									<div class="input-field col s12 m6 l6">
+										<i class="mdi-action-verified-user prefix"></i>
+										<input id="confirm" name="confirm" type="password" class="validate">
+										<label for="confirm">Confirm Password</label>
+									</div>
+									<div class="col s12">
+										<p class="center">
+											<input class="center" type="checkbox" id="agree" name="agree"/>
+											<label for="agree">I agree to the <a class="modal-trigger" href="#terms">Terms and Conditions</a></label>
+										</p>
+									</div>
+									<div class="col s12 center">
+										<div class="g-recaptcha" data-sitekey="6LfDDwITAAAAACM9IoAgEEankOMSiE0ljvyZFU9E"></div>
+									</div>
+								</div>
+								{% csrf_token %}
+								<div class="center">
+									<button class="btn waves-effect waves-light" type="submit" name="action">Register
+										<i class="mdi-content-send right"></i>
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		
+		<div id="helpmodal" class="modal">
+			<div class="modal-content">
+				<h4>Register Help</h4>
+				<p>We're so glad that you've decided to join us. Fill out the form to register a team. </p>
+			</div>
+			<div class="modal-footer">
+				<button class="waves-effect waves-light btn modal-action modal-close">Got it</button>
+			</div>
+		</div>	
+		
+		<div id="terms" class="modal">
+			<div class="modal-content">
+				<h4>Terms and Conditions</h4>
+				<p>By registering, you are agreeing to provide CCTF with your information. All information will be used solely for the purpose of contacting your team regarding awards and updates. Failure to enter valid information may result in disqualification. Only teams composed of middle school and/or high school students in the United States will be eligible for awards. Teams that do not meet this criteria can still compete but will not be considered for awards. All content in this competition is purely for educational purposes. You and your team will <b>NOT</b> hold CCTF accountable for any damage caused to your team's devices nor any damage caused by skills that you have learned during this competition under any circumstances.</p>
+			</div>
+			<div class="modal-footer">
+				<button class="waves-effect waves-light btn modal-action modal-close">Got it</button>
+			</div>
+		</div>		
+{% endblock %}
+
+{% block scripts %}
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+		<script type="text/javascript" src="{{STATIC_URL}}js/register.js"></script>
+{% endblock %}

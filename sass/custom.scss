@@ -1,0 +1,205 @@
+body {
+	display: flex;
+	height: 100vh;
+	flex-direction: column;
+	overflow-y: scroll;
+}
+
+header, footer {
+	flex-shrink: 0;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+ul.side-nav.full li, ul.side-nav.fixed li {
+	line-height: 40px;
+}
+
+#slide-out, #nav-mobile {
+	overflow-y: auto;
+}
+
+.progress {
+	background-color: #e8eaf6;
+}
+
+a {
+	color: #536dfe;
+}
+
+.card a {
+	color: #536dfe;
+	margin-right: 0;
+	text-transform: none;
+}
+
+.card a:hover {
+	color: #536dfe;
+}
+
+.brand-logo img {
+	width: 60px;
+}
+
+@media #{$medium-and-down} {
+	nav .brand-logo {
+		height: 68px;
+	};
+}
+
+@media #{$small-and-down} {
+	.brand-logo img {
+		width: 50px;
+	}
+	nav .brand-logo {
+		height: 58px;
+	};
+}
+
+.card .card-action {
+	border-top: 1px solid #536dfe;
+}
+
+.autocomplete-suggestions {
+	text-align: left;
+	cursor: default;
+	border: 1px solid #ccc;
+	border-top: 0;
+	background: #fff;
+	box-shadow: -1px 1px 3px rgba(0,0,0,.1);
+	position: absolute;
+	display: none;
+	z-index: 9999;
+	max-height: 200px;
+	overflow: hidden;
+	overflow-y: auto;
+	box-sizing: border-box;
+}
+
+.autocomplete-suggestion {
+	position: relative;
+	padding: 0 .6em;
+	line-height: 23px;
+	white-space: nowrap;
+	overflow: hidden;
+	font-size: 1.02em;
+	color: #333;
+}
+
+.autocomplete-suggestion b {
+	font-weight: normal;
+	color: #9b9b9b;
+}
+
+.autocomplete-suggestion.selected {
+	background: rgba(83, 109, 254, 0.2);
+}
+
+ul.side-nav.full li:hover, ul.side-nav.full li.active, ul.side-nav.fixed li:hover, ul.side-nav.fixed li.active, table.hoverable tbody tr:hover {
+	background-color: rgba(83, 109, 254, 0.2);
+}
+
+b {
+	color: #536dfe;
+}
+
+@media only screen and (max-width : 600px) {
+	.modal {
+		width: 95%;
+	};
+}
+
+.collection {
+	margin: 0;
+	border: 0;
+	border-radius: 0;
+}
+
+#challenge .collapsible-item a {
+	color: #000;
+	padding-right: 50px;
+}
+
+.tabs li.tab a {
+	color: #536dfe;
+}
+
+.tabs li.tab a:hover {
+	color: #c5cae9;
+}
+
+.tabs .indicator {
+	background-color: #536dfe;
+}
+
+:focus {
+	outline: none;
+}
+
+::-moz-focus-inner {
+	border: 0;
+}
+
+#scoreboard th, #scoreboard tr {
+	cursor: pointer;
+}
+
+nav ul a {
+	width: 100%;
+}
+
+.waves-effect {
+	vertical-align: top;
+}
+
+.waves-effect.waves-indigo .waves-ripple {
+	background-color: rgba(83, 109, 254, 0.5);
+}
+
+.toast {
+	height: auto;
+	line-height: inherit;
+	padding: 0.9rem 25px;
+}
+
+button:focus {
+	background-color: $button-color;
+}
+
+nav .nav-wrapper i {
+    font-size: inherit;
+}
+
+.center {
+	width: 100%;
+}
+
+.g-recaptcha {
+	display: inline-block;
+	margin-top: 30px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+.valign-wrapper {
+
+	height: 100%;
+}
+
+.collapsible {
+	margin: inherit;
+}
+
+.card-content > #description {
+	padding-top: 15px;
+}

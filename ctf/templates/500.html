@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}500 Error - CCTF{% endblock %}	
+
+{% block main %}
+		<main>
+			<div class="container">
+				<h2 class="center green-text">500 Error</h2>
+				<h5 class="center light">Oops. Something went wrong. If problem persists, <a href="mailto:contact@camsctf.com">contact us</a>.</h5>
+				<br>
+				<div class="row">
+					<img class="materialboxed" data-caption="I'm sorry. Something went wrong." width="100%" src="http://stylonica.com/wp-content/uploads/2014/03/Cute-Cats-cats-33440930-1280-800.jpg">
+				</div>
+			</div>
+		</main>
+		
+		<div id="helpmodal" class="modal">
+			<div class="modal-content">
+				<h4>500 Error Help</h4>
+				<p>It's a 500 error. Don't know what that means? Google it.</p>
+			</div>
+			<div class="modal-footer">
+				<button class="waves-effect waves-light btn modal-action modal-close">Got it</button>
+			</div>
+		</div>
+{% endblock %}
+
+{% block scripts %}
+		<script type="text/javascript" src="{{STATIC_URL}}js/other.js"></script>
+{% endblock %}

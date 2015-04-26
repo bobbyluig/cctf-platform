@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Read Me - CCTF{% endblock %}
+
+{% block main %}	
+		<main>
+			<div class="container">
+				<h2 class="center green-text">Read Me</h2>
+				<h5 class="center light">Read me now, or forever regret not reading me.</h5>
+			</div>
+			
+			<div class="container">
+				<div class="section" id="challenges">
+					<h5>Challenges</h5>
+					<p>The challenges page is where you will spend a majority of your time. Expand any section and select a challenge to get started. Click the <i class="mdi-action-info-outline modal-trigger"></i> to see ordering options.</p>
+					<p>Each challenge is worth the number of Base Points denoted plus any speed bonus that your team earns. Speed for more difficult challenges is encouraged. The first team that completes a challenge will receive a 3% score bonus. Teams that finish the challenge second or third will receive 2% and 1% respectively. The minimum values for bonuses are 3 points, 2 points, and 1 points respective for first, second, and third (in the case that 3% is less than 3 points, etc.). For example, the first team that completes a 100 point challenge will receive 103 points.</p>
+					<p>When you compete a challenge, a tuple (Base Points earned, Interact Points earned) will follow the message. Along with Base Points, each challenges gives your team Interact Points that can be used to interact with other teams. Challenges will provide 20% &plusmn; 5% of its Base Points as Interact Points. For example, a 100 point challenge will provide your team with 15 - 25 Interact Points regardless of how fast your team solves it.</p>
+				</div>
+				<div class="divider"></div>
+				
+				<div class="section" id="interact">
+					<h5>Interact</h5>
+					<p>Admit it. You know you want to give other teams negative points. Now you can. Interact Points (IP) can be used to attack other teams. However, they also act as a buffer when other teams attack you. When a team's IP run out, successful attacks will decrement Base Points (BP). Not all Interacts will be successful.</p>
+					<p>Caution: Be very careful with the Interact System! Spamming all your team's Interact Points at other teams will leave your team <b>vulnerable</b>. The equations below detail how the system determines if an Interact will succeed.</p>
+					<p>$$i = id_{victim}$$</p>
+					<p>$$r = 0.50 - (\frac{lost_{i}}{0.2 \times bp_{i}})$$</p>
+					<p>$$min = 0.005 + (\frac{ip_{i}}{\sum ip})$$</p>
+					<p>
+						$$
+						p_{success} = \begin{cases}
+						r \times 100 & r > min  \\ 
+						min \times 100 & \text{otherwise}
+						\end{cases}
+						$$
+					</p>
+					<p>Essentially, the more points (both BP and IP) a team has lost, the less likely it is for an attack on that team to succeed. It is possible to play safe. If your team does not use any IP, it is highly unlikely for your team to lose BP. Note that IP <b>is not used</b> to determine placement on the scoreboard. It is best to use them before the competition ends.</p>
+					<p>Also, don't cry if you use IP before doing the math. We are not responsible for improvident use of the system. We've calibrated the constants to make sure that they are fair. Unless you spam IP, your team will not magically fall down in the rankings.</p>
+				</div>
+				<div class="divider"></div>
+				
+				<div class="section" id="unsolvable">
+					<h5>Unsolvable Challenges</h5>
+					<p>While we've tested the challenges, it is possible that a few could be broken or have unclear instructions. If you think a challenge is unsolvable, email us or message us over the IRC and we will verify the challenge's functionality and consider adding hints.</p>
+				</div>
+				<div class="divider"></div>
+				
+				<div class="section">
+					<h5>I Broke Something...</h5>
+					<p>Good job! You found a vulnerability on a challenge or the infrastructure. To not completely destroy the fun for everyone else, please tell us over email about the flaw so we can patch it and award your team some points for not eradicating everything.</p> 
+				</div>
+				<div class="divider"></div>
+				
+				<div class="section">
+					<h5>Rules</h5>
+					<p>The rules are located <a target="_blank" href="http://camsctf.com/about#rules">here</a>. Obeying them ensures that everyone can enjoy the competition.<p>
+				</div>
+				
+			</div>
+		</main>
+		
+		<div id="helpmodal" class="modal">
+			<div class="modal-content">
+				<h4>Read Me Help</h4>
+				<p>Read me maybe?</p>
+			</div>
+			<div class="modal-footer">
+				<button class="waves-effect waves-light btn modal-action modal-close">Got it</button>
+			</div>
+		</div>
+{% endblock %}
+
+{% block scripts %}
+		<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="{{STATIC_URL}}js/other.js"></script>
+{% endblock %}

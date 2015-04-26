@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}Stats - CCTF{% endblock %}
+
+{% block main %}
+		<main>
+			<div class="valign-wrapper" style="height:60vh;" id="preload">
+				<div class="container">
+					<div class="progress">
+						<div class="indeterminate"></div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="container" id="main" style="display:none">
+				<h2 class="center green-text"></h2>
+				<br>
+				<div class="row">
+					<div class="col s12">
+						<div class="z-depth-1">
+							<table class="hoverable bordered centered z-depth-1">
+								<thead>
+									<tr>
+										<th>General Data</th>
+										<th>Info</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Total Base Points</td>
+										<td id="1"></td>
+									</tr>
+									<tr>
+										<td>Points Lost (IP + BP)</td>
+										<td id="2"></td>
+									</tr>
+									<tr>
+										<td>Number of Completed Challenges</td>
+										<td id="3"></td>
+									</tr>
+									<tr>
+										<td>Speed Bonus (points)</td>
+										<td id="4"></td>
+									</tr>
+									<tr>
+										<td>Failed Flag Submissions</td>
+										<td id="5"></td>
+									</tr>
+									<tr>
+										<td>Submission Accuracy</td>
+										<td id="6"></td>
+									</tr>
+									<tr>
+										<td>Used Interact Points</td>
+										<td id="7"></td>
+									</tr>
+									<tr>
+										<td>Successful Interact Points</td>
+										<td id="8"></td>
+									</tr>
+									<tr>
+										<td>Failed Interact Points</td>
+										<td id="9"></td>
+									</tr>
+									<tr>
+										<td>Interact Points Success Rate</td>
+										<td id="10"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			
+				<div class="row">
+					<div class="col s12">			
+						<ul class="collapsible z-depth-1" data-collapsible="accordion" id="data">
+						</ul>
+					</div>
+				</div>
+				
+				<div class="row" id="origin">
+					<div class="col s12">
+						<div class="z-depth-1">
+							<table class="hoverable bordered centered">
+								<thead>
+									<tr>
+										<th>Attacked</th>
+										<th>Successful Interacts</th>
+										<th>Total Interacts</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<div class="row" id="destination">
+					<div class="col s12">
+						<div class="z-depth-1">
+							<table class="hoverable bordered centered">
+								<thead>
+									<tr>
+										<th>Attacked By</th>
+										<th>Successful Interacts</th>
+										<th>Total Interacts</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col s12">
+						<div class="z-depth-1">
+							<div style="height: 400px;" id="graph">
+								<div class="valign-wrapper">
+									<div class="progress">
+										<div class="indeterminate"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+		</main>
+		
+		<div id="helpmodal" class="modal">
+			<div class="modal-content">
+				<h4>Statistics Help</h4>
+				<p>Take a look at various teams accomplishments and actions. The graph is interactive and you can click on the "key" to toggle the visibility. It is updated once per minute.</p>
+			</div>
+			<div class="modal-footer">
+				<button class="waves-effect waves-light btn modal-action modal-close">Got it</button>
+			</div>
+		</div>			
+{% endblock %}
+
+{% block scripts %}
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/4.1.4/highcharts.js"></script>
+		<script type="text/javascript" src="{{STATIC_URL}}js/stats.js"></script>
+{% endblock %}

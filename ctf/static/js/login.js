@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".button-collapse").sideNav(),$(".modal-trigger").leanModal(),$("form").submit(function(){return $.ajax({type:"POST",url:$(this).attr("action"),data:$(this).serialize(),success:function(t){1==t.success?window.location.href="/":Materialize.toast(t.message,150*t.message.length)}}),!1})});

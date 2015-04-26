@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="apple-touch-icon" sizes="57x57" href="{{STATIC_URL}}apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="{{STATIC_URL}}apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="{{STATIC_URL}}apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="{{STATIC_URL}}apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="{{STATIC_URL}}apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="{{STATIC_URL}}apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="{{STATIC_URL}}apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="{{STATIC_URL}}apple-touch-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="{{STATIC_URL}}apple-touch-icon-180x180.png">
+		<link rel="icon" type="image/png" href="{{STATIC_URL}}favicon-192x192.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="{{STATIC_URL}}favicon-160x160.png" sizes="160x160">
+		<link rel="icon" type="image/png" href="{{STATIC_URL}}favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="{{STATIC_URL}}favicon-16x16.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="{{STATIC_URL}}favicon-32x32.png" sizes="32x32">
+		<meta name="msapplication-TileColor" content="#4caf50">
+		<meta name="msapplication-TileImage" content="{{STATIC_URL}}mstile-144x144.png">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<meta name="theme-color" content="#1B5E20">
+		<link type="text/css" rel="stylesheet" href="{{STATIC_URL}}css/materialize.css"  media="screen,projection"/>
+	</head>
+
+	<body>
+		<header>
+			<nav role="navigation">
+				<div class="nav-wrapper container">
+					<a href="/" class="brand-logo"><img src="{{STATIC_URL}}mstile-144x144.png" /></a>
+					<ul class="right hide-on-med-and-down">
+						{% if "teamid" in request.session and comp_started %}
+						<li><a href="/">Home</a></li>
+						<li><a href="/scoreboard">Scoreboard</a></li>
+						<li><a href="/challenges">Challenges</a></li>
+						<li><a href="/interact">Interact</a></li>
+						<li><a href="/account">Account</a></li>
+						{% elif "teamid" in request.session %}
+						<li><a href="/">Home</a></li>
+						<li><a href="/scoreboard">Scoreboard</a></li>
+						<li><a href="/account">Account</a></li>
+						{% else %}
+						<li><a href="/">Home</a></li>
+						<li><a href="/scoreboard">Scoreboard</a></li>
+						<li><a href="/register">Register</a></li>
+						<li><a href="/login">Login</a></li>
+						{% endif %}
+						<li><a href="/irc">IRC</a></li>
+						<li><a class="mdi-action-info-outline modal-trigger" href="#helpmodal"></a></li>
+					</ul>
+					<ul id="nav-mobile" class="side-nav">
+						{% if "teamid" in request.session and comp_started %}
+						<li><a class="waves-effect waves-indigo" href="/">Home</a></li>
+						<li><a class="waves-effect waves-indigo" href="/scoreboard">Scoreboard</a></li>
+						<li><a class="waves-effect waves-indigo" href="/challenges">Challenges</a></li>
+						<li><a class="waves-effect waves-indigo" href="/interact">Interact</a></li>
+						<li><a class="waves-effect waves-indigo" href="/account">Account</a></li>
+						{% elif "teamid" in request.session %}
+						<li><a class="waves-effect waves-indigo" href="/">Home</a></li>
+						<li><a class="waves-effect waves-indigo" href="/scoreboard">Scoreboard</a></li>
+						<li><a class="waves-effect waves-indigo" href="/account">Account</a></li>
+						{% else %}
+						<li><a class="waves-effect waves-indigo" href="/">Home</a></li>
+						<li><a class="waves-effect waves-indigo" href="/scoreboard">Scoreboard</a></li>
+						<li><a class="waves-effect waves-indigo" href="/register">Register</a></li>
+						<li><a class="waves-effect waves-indigo" href="/login">Login</a></li>
+						{% endif %}
+						<li><a class="waves-effect waves-indigo" href="/irc">IRC</a></li>
+						<li><a class="waves-effect waves-indigo modal-trigger" href="#helpmodal"><i class="mdi-action-info-outline"></i></a></li>
+					</ul>
+					<a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+				</div>
+			</nav>
+		</header>
+		
+		{% block main %}{% endblock %}
+		
+		<footer class="page-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">CAMS CTF</h5>
+						<p class="grey-text text-lighten-4">A Capture the Flag competition created by the California Academy of Mathematics and Science for middle and high school students.</p>
+					</div>
+					<div class="col l3 s12">
+						<h5 class="white-text">Pages</h5>
+						<ul>
+							<li><a class="white-text" href="/">Home</a>
+							</li>
+							<li><a class="white-text" href="/challenges">Challenges</a>
+							</li>
+							<li><a class="white-text" href="/readme">Read Me</a>
+							</li>
+							<li><a class="white-text" href="http://camsctf.com">CCTF Home</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col l3 s12">
+						<h5 class="white-text">Connect</h5>
+						<ul>
+							<li><a class="white-text" href="https://github.com/CAMSCSC">Github</a>
+							</li>
+							<li><a class="white-text" href="https://www.facebook.com/groups/1418538045055499/">Facebook</a>
+							</li>
+							<li><a class="white-text" href="mailto:contact@camsctf.com">Email</a>
+							</li>
+							<li><a class="white-text" href="http://camscsc.org/">CAMS CSC</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					&copy; CCTF 2015 | Made with <a class="grey-text text-lighten-2" href="http://materializecss.com/">MaterializeCSS</a>
+					<a class="grey-text text-lighten-2 right" href="/license">MIT License</a>
+				</div>
+			</div>
+		</footer>
+		
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.0/js/materialize.min.js"></script>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-59224610-2', 'auto');ga('send', 'pageview');
+		</script>
+		{% block scripts %}{% endblock %}
+	</body>	
+</html>

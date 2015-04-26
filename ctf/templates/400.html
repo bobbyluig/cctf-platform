@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}400 Error - CCTF{% endblock %}	
+
+{% block main %}
+		<main>
+			<div class="container">
+				<h2 class="center green-text">400 Error</h2>
+				<h5 class="center light">That is a very bad request you got there...</h5>
+				<br>
+				<div class="row">
+					<img class="materialboxed" data-caption="You made a bad request." width="100%" src="https://c1.staticflickr.com/5/4150/4985430014_2f279be804_b.jpg">
+				</div>
+			</div>
+		</main>
+		
+		<div id="helpmodal" class="modal">
+			<div class="modal-content">
+				<h4>400 Error Help</h4>
+				<p>It's a 400 error. Don't know what that means? Google it.</p>
+			</div>
+			<div class="modal-footer">
+				<button class="waves-effect waves-light btn modal-action modal-close">Got it</button>
+			</div>
+		</div>
+{% endblock %}
+
+{% block scripts %}
+		<script type="text/javascript" src="{{STATIC_URL}}js/other.js"></script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}IRC - CCTF{% endblock %}
+
+{% block main %}
+		<main>
+			<div class="container">
+				<h2 class="center green-text">IRC</h2>
+				<h5 class="center light">Questions? Comments? Concerns?</h5>
+				<br>
+				<div class="row center">
+					<div class="col s12">
+						<object data="http://widget.mibbit.com/?settings=dc8750598215053745b4e3ab6a097602&server=irc.Mibbit.Net%3A%2B6697&channel=%23cctf" width="100%" height="500" class="hide-on-small-and-down"></object>
+						<a href="http://widget.mibbit.com/?settings=dc8750598215053745b4e3ab6a097602&server=irc.Mibbit.Net%3A%2B6697&channel=%23cctf" target="_blank"><i class="large mdi-communication-chat hide-on-med-and-up"></i></a>
+					</div>
+				</div>
+			</div>
+		</main>
+		
+		<div id="helpmodal" class="modal">
+			<div class="modal-content">
+				<h4>IRC Help</h4>
+				<p>Pick a username and start chatting with us! We apologize for not being able to monitor the IRC 24/7. If you have something super important, email us.</p>
+			</div>
+			<div class="modal-footer">
+				<button class="waves-effect waves-light btn modal-action modal-close">Got it</button>
+			</div>
+		</div>
+{% endblock %}
+
+{% block scripts %}
+		<script type="text/javascript" src="{{STATIC_URL}}js/other.js"></script>
+{% endblock %}
