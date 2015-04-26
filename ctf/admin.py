@@ -1,4 +1,4 @@
-#This script handles the administrative work that is not implemented into the website. It is not integrated with the site. 
+'''This script handles the administrative work that is not implemented into the website. It is not integrated with the site. '''
 
 import pkgutil, os
 
@@ -12,7 +12,7 @@ from api.models import *
 from django.core.cache import cache
 import json, time
 
-#This function recomputes every score of every team. This includes score, IP, completed challenges, latest solves, etc. 
+'''This function recomputes every score of every team. This includes score, IP, completed challenges, latest solves, etc. '''
 def flush():
 	cursor = connection.cursor()
 	cursor.execute("SELECT array_agg(id) FROM team")
@@ -27,7 +27,7 @@ def flush():
 			
 	print('Success!')
 	
-#This function adds a system message visible on the Play home page. 
+'''This function adds a system message visible on the Play home page. '''
 def add_message(message):
 	db = db_system(text=message)
 	db.save()
@@ -35,7 +35,7 @@ def add_message(message):
 	
 	print('Success!')
 
-#This function checks if memcached is working. 	
+'''This function checks if memcached is working''' 	
 def check_cache():
 	cache.set('test_cache', '')
 	if cache.get('test_cache') is None:
@@ -50,7 +50,7 @@ def clear_cache():
 	
 	print('Success!')
 
-#This function tests the cache's speed. 
+'''This function tests the cache's speed. '''
 def cache_test():
 	cache.set('test_cache', 'abc')
 	start = time.time()
@@ -62,7 +62,7 @@ def cache_test():
 		cache.set('test_cache', 'aaaaaaaaaaaaaaaaaaa')
 	print(time.time() - start)
 	
-#This function adds a challenge to the database. It adds the title, score, file, and category to the database. 
+'''This function adds a challenge to the database. It adds the title, score, file, and category to the database. '''
 def add_challenges():	
 	cursor = connection.cursor()
 	cursor.execute("TRUNCATE challenges RESTART IDENTITY")
@@ -83,7 +83,8 @@ def add_challenges():
 			pass
 		
 	print('Success!')
-	
+
+'''This is the main loop of the script.'''	
 if __name__ == '__main__':
 	while True:
 		data = input('Function: ')
