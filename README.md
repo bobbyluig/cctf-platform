@@ -21,7 +21,7 @@ Descriptors are Python functions that return the data to be displayed for the ch
 
 All challenge files should contain three functions: ```def grade(flag)```, ```def description()```, and ```def add()```. They should be placed in the challenges folder (or whichever folder you choose in the config file). There should be one file per challenge. Challenge files can be named arbitrarily.
 
-Example: Challenge 1
+Example: Web 2
 
 ```python
 def grade(flag):
@@ -31,12 +31,12 @@ def grade(flag):
 		return (False, 'You are a failure.')
     
 def description():
-	data = "<p>Are you ready for challenge 1?</p>"
+	data = "<p>Are you ready for a horrible web challenge?</p>"
     return data
     	
 def add():
 	data = {
-		'title': 'Web 1',
+		'title': 'Web 2',
 		'category': 2,
 		'value': 15,
 		'type': 0, # Optional. If 1, tells browser not to cache challenge.
@@ -45,7 +45,7 @@ def add():
 ```
 
 
-The file in this case should be named ```challenge_1.py```.
+The file in this case can be arbitrarily named ```web_2.py```.
 
 ### Administration
 Challenges can be automatically added using ```admin.py```. Simply run the following:
