@@ -1,5 +1,5 @@
 # CCTF Platform
-This is a CTF platform built using Django and Materialize used in the CCTF 2015 competition. We wanted to create a unique platform that can accomodate both novice and advanced CTF players alike. The CCTF Platform tried many experimental things such as Interact Points, AJAX challenge loading system, and dynamic graphs. Most of them turned out nicely but some features still require significant polishing. Also, the platform lacked an integrated administrative system. We are starting work on improving the platform for next year!
+This is a CTF platform built using Django and Materialize used in the CCTF 2015 competition. We wanted to create a unique platform that can accomodate both novice and veteran CTF players alike. The CCTF Platform tried many experimental things such as Interact Points, AJAX challenge loading system, and dynamic graphs. Most of them turned out nicely but some features still require significant polishing. Also, the platform lacked an integrated administrative system. We are starting work on improving the platform for next year!
 
 ### Prerequisites
 The following prerequisites are needed for the platform to run.
@@ -15,35 +15,36 @@ The following prerequisites are needed for the platform to run.
 Development of the CCTF platform can be done using any IDE or Notepad++. [Koala](http://koala-app.com/) was used for SASS compilation and JavaScript minification. All JS and CSS files in the static folder are minified.
 
 ### Challenge Files
-Challenges are made of two components: a descriptor and a grader.
+Challenges are made of three components: a descriptor, a grader, and an adder.
 
-Descriptors are Python functions that return the data to be displayed for the challenge. Graders are Python functions that are used to determine the correct "flag" for each challenge. Each grader should return a tuple. The first item in the tuple should indicate whether the user's submission was correct. The second item should be a message to display back to the user.
+Descriptors are Python functions that return the data to be displayed for the challenge. Graders are Python functions that are used to determine the correct "flag" for each challenge. Each grader should return a tuple. The first item in the tuple should indicate whether the user's submission was correct. The second item should be a message to display back to the user. Adders are Python functions that add the challenge into the database. They contain the title, category, value, and type (if necessary).
 
-All challenges should contain three function: ```def grade(flag)```, ```def description()```, and ```def add()```. The should be placed in the challenges folder (or whichever folder you choose in the config file). There should be one file per challenge. Challenge files can be named arbitrarily.
+All challenge files should contain three functions: ```def grade(flag)```, ```def description()```, and ```def add()```. They should be placed in the challenges folder (or whichever folder you choose in the config file). There should be one file per challenge. Challenge files can be named arbitrarily.
 
 Example: Challenge 1
 
-```python
-def grade(flag):
-	if flag == '{this_is_a_flag}':
-		return (True, 'Success!')
-	else:
-		return (False, 'You are a failure.')
+	python
 
-def description():
-	data = "<p>Are you ready for challenge 1?</p>"
-	return data
-	
-def add():
-	data = {
-		'title': 'Web 1',
-		'category': 2,
-		'score': 15,
-		'type': 0, # Optional. If 1, tells browser not to cache challenge.
-	}
-	
-	return data
-```
+     def grade(flag):
+    	if flag == '{this_is_a_flag}':
+    		return (True, 'Success!')
+    	else:
+    		return (False, 'You are a failure.')
+    
+    def description():
+    	data = "<p>Are you ready for challenge 1?</p>"
+    	return data
+    	
+    def add():
+    	data = {
+    		'title': 'Web 1',
+    		'category': 2,
+    		'value': 15,
+    		'type': 0, # Optional. If 1, tells browser not to cache challenge.
+    	}
+    	
+    return data
+
 
 The file in this case should be named ```challenge_1.py```.
 
