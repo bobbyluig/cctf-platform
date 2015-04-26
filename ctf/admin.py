@@ -12,8 +12,9 @@ from api.models import *
 from django.core.cache import cache
 import json, time
 
-'''This function recomputes every score of every team. This includes score, IP, completed challenges, latest solves, etc. '''
 def flush():
+	'''Recompute very score of every team. This includes score, IP, completed challenges, latest solves, etc.'''
+
 	cursor = connection.cursor()
 	cursor.execute("SELECT array_agg(id) FROM team")
 	teams = cursor.fetchone()[0]
@@ -27,16 +28,19 @@ def flush():
 			
 	print('Success!')
 	
-'''This function adds a system message visible on the Play home page. '''
+
 def add_message(message):
+	'''Add a system message visible on the home page.'''
+
 	db = db_system(text=message)
 	db.save()
 	cache.set('system_latest_messages', '', 0)
 	
 	print('Success!')
-
-'''This function checks if memcached is working''' 	
+	
 def check_cache():
+	'''Check if memcached is working.''' 
+
 	cache.set('test_cache', '')
 	if cache.get('test_cache') is None:
 		print('Memcached is not working!')
@@ -44,14 +48,17 @@ def check_cache():
 		cache.set('test_cache', '', 0)
 		print('Memcached is working!')
 
-#This function clears the cache. 		
-def clear_cache():	
+		
+def clear_cache():
+	'''Clear ALL cache.''' 
+
 	cache.clear()
 	
 	print('Success!')
 
-'''This function tests the cache's speed. '''
 def cache_test():
+	'''Test the cache's speed.'''
+
 	cache.set('test_cache', 'abc')
 	start = time.time()
 	for i in range(0, 10000):
@@ -62,8 +69,9 @@ def cache_test():
 		cache.set('test_cache', 'aaaaaaaaaaaaaaaaaaa')
 	print(time.time() - start)
 	
-'''This function adds a challenge to the database. It adds the title, score, file, and category to the database. '''
 def add_challenges():	
+	'''Add all challenges to the database.'''
+
 	cursor = connection.cursor()
 	cursor.execute("TRUNCATE challenges RESTART IDENTITY")
 	challenges = [name for _, name, _ in pkgutil.iter_modules([config.CHALLENGE_FOLDER])]
@@ -84,8 +92,9 @@ def add_challenges():
 		
 	print('Success!')
 
-'''This is the main loop of the script.'''	
 if __name__ == '__main__':
+	'''An example of horrible and lazy programming.'''
+
 	while True:
 		data = input('Function: ')
 		eval(data)
