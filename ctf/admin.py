@@ -1,3 +1,5 @@
+#This script handles the administrative work that is not implemented into the website. It is not integrated with the site. 
+
 import pkgutil, os
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ctf.settings")
@@ -10,6 +12,7 @@ from api.models import *
 from django.core.cache import cache
 import json, time
 
+#This function recomputes every score of every team. This includes score, IP, completed challenges, latest solves, etc. 
 def flush():
 	cursor = connection.cursor()
 	cursor.execute("SELECT array_agg(id) FROM team")
@@ -23,14 +26,16 @@ def flush():
 			pass
 			
 	print('Success!')
-
+	
+#This function adds a system message visible on the Play home page. 
 def add_message(message):
 	db = db_system(text=message)
 	db.save()
 	cache.set('system_latest_messages', '', 0)
 	
 	print('Success!')
-	
+
+#This function checks if memcached is working. 	
 def check_cache():
 	cache.set('test_cache', '')
 	if cache.get('test_cache') is None:
@@ -38,12 +43,14 @@ def check_cache():
 	else:
 		cache.set('test_cache', '', 0)
 		print('Memcached is working!')
-	
+
+#This function clears the cache. 		
 def clear_cache():	
 	cache.clear()
 	
 	print('Success!')
-	
+
+#This function tests the cache's speed. 
 def cache_test():
 	cache.set('test_cache', 'abc')
 	start = time.time()
@@ -55,7 +62,7 @@ def cache_test():
 		cache.set('test_cache', 'aaaaaaaaaaaaaaaaaaa')
 	print(time.time() - start)
 	
-		
+#This function adds a challenge to the database. It adds the title, score, file, and category to the database. 
 def add_challenges():	
 	cursor = connection.cursor()
 	cursor.execute("TRUNCATE challenges RESTART IDENTITY")
