@@ -58,3 +58,6 @@ Other administrative tasks can be done by calling functions in ```admin.py```. T
 
 ### Deployment
 The preferable method for deploying the CCTF Platform if using [uwsgi](https://github.com/unbit/uwsgi). Other methods include ```mod_python```, ```gunicorn```, or the deprecated ```FastCGI``` (highly not recommended but possible).
+
+### Credits
+CCTF 2015 and the CCTF Platform was possible thanks to the contribution and dedication of the following CSC Members: Lujing Cen, Oskar Wirga, Alastair MacMillan, Paul Hsiao, Spencer Hu, Mike Iovine.
