@@ -1,5 +1,5 @@
 # CCTF Platform
-This is a CTF platform built using Django and Materialize used in the CCTF 2015 competition. We wanted to create a unique platform that can accomodate both novice and veteran CTF players alike. The CCTF Platform tried many experimental things such as Interact Points, AJAX challenge loading system, and dynamic graphs. Most of them turned out nicely but some features still require significant polishing. Also, the platform lacked an integrated administrative system. We are starting work on improving the platform for next year!
+This is a CTF platform built using Django and MaterializeCSS used in the CCTF 2015 competition. We wanted to create a unique platform that can accomodate both novice and veteran CTF players alike. The CCTF Platform tried many experimental things such as Interact Points, AJAX challenge loading system, and dynamic graphs. Most of them turned out nicely but some features still require significant polishing. Also, the platform lacked an integrated administrative system. We are starting work on improving the platform for next year!
 
 ### Prerequisites
 The following prerequisites are needed for the platform to run.
@@ -13,6 +13,9 @@ The following prerequisites are needed for the platform to run.
 
 ### Development
 Development of the CCTF platform can be done using any IDE or Notepad++. [Koala](http://koala-app.com/) was used for SASS compilation and JavaScript minification. All JS and CSS files in the static folder are minified.
+
+### Frontend
+The base HTML files can be found in /ctf/templates/ Read up on the [Material Design Spec](http://www.google.com/design/spec/material-design/introduction.html) before tweaking your settings. 
 
 ### Challenge Files
 Challenges are made of three components: a descriptor, a grader, and an adder.
