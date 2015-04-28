@@ -15,7 +15,7 @@ The following prerequisites are needed for the platform to run.
 Development of the CCTF platform can be done using any IDE or Notepad++. [Koala](http://koala-app.com/) was used for SASS compilation and JavaScript minification. All JS and CSS files in the static folder are minified.
 
 ### Frontend
-The base HTML files can be found in /ctf/templates/ Read up on the [Material Design Spec](http://www.google.com/design/spec/material-design/introduction.html) before tweaking your settings. 
+The base HTML files can be found in /ctf/templates/ Read up on the [Material Design Spec](http://www.google.com/design/spec/material-design/introduction.html) before tweaking your settings. Find ~ for all prompts to customize the content of the CTF.
 
 ### Challenge Files
 Challenges are made of three components: a descriptor, a grader, and an adder.
