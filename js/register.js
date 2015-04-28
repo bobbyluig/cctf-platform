@@ -1,5 +1,7 @@
 $(document).ready(function() {
+	//Initialize the sideNav
 	$(".button-collapse").sideNav();
+	//Initialize the modal
 	$('.modal-trigger').leanModal();
 	$('select').material_select();
 

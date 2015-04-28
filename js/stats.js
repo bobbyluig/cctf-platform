@@ -185,7 +185,9 @@ var d1 = $.get('/api/team/stats/?t=' + getURLParameter('t'));
 var d2 = $.get('/api/team/graph/?t=' + getURLParameter('t'));
 
 $(document).ready(function() {
-	$('.button-collapse').sideNav();
+	//Initialize the sideNav
+	$(".button-collapse").sideNav();
+	//Initialize the modal
 	$('.modal-trigger').leanModal();
 	
 	$.when(d1).done(function(data) {

@@ -25,7 +25,9 @@ function table(data) {
 }
 
 $(document).ready(function() {
-	$('.button-collapse').sideNav();
+	//Initialize the sideNav
+	$(".button-collapse").sideNav();
+	//Initialize the modal
 	$('.modal-trigger').leanModal();
 
 	$.ajax({

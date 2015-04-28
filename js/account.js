@@ -1,7 +1,9 @@
 $(document).ready(function() {
+	//Initialize the sideNav
 	$(".button-collapse").sideNav();
+	//Initialize the modal
 	$('.modal-trigger').leanModal();
-
+	
 	$('form').submit(function() {
 		form = $(this)
 		$.ajax({

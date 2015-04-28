@@ -29,7 +29,9 @@ function objsort(array, key) {
 	});
 }
 
-$('.button-collapse').sideNav();
+//Initialize the sideNav
+$(".button-collapse").sideNav();
+//Initialize the modal
 $('.modal-trigger').leanModal();
 
 icon_map = {
